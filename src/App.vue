@@ -1,28 +1,54 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Jornada SMD</h1>
+    <div class="topico">
+      <p>1</p>
+      <p>O que você gosta de fazer?</p>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-left: 100px;
+
 }
+#app h1{
+  width: 1058px;
+  color: white;
+  align-self: flex-start;
+  text-align: left;
+}
+.topico{
+  display: flex;
+  color: white;
+  font-weight: 700;
+  align-items: center;
+}
+
+.topico p:nth-of-type(1){
+  background-color: #EC2353;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  margin-right: 24px;
+  box-sizing: border-box;
+  padding: 6px;
+}
+
 </style>
