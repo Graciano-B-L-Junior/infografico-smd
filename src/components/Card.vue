@@ -1,15 +1,20 @@
 <template>
     <div class="card">
-        <div class="image-card"></div>
+        <div class="image-card">
+            <img :src="imageSource">
+        </div>
         <p>{{Titulo}}</p>
     </div>
 </template>
 <script>
 export default {
-    props:['Titulo']
+    props:['Titulo','imageSource']
 }
 </script>
 <style>
+    *{
+        box-sizing: border-box;
+    }
     .card{
         width: 240px;
         height: 219px;
@@ -19,6 +24,11 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+    }
+    .card img{
+        margin-top: 30px;
+        width: 55%;
+        height: 70%;
     }
     .image-card{
         width: 100%;

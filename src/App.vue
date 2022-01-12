@@ -6,21 +6,38 @@
       <p>O que você gosta de fazer?</p>
     </div>
     <div class="cards">
-      <card :Titulo="'Resolver Problemas'"/>
-      <card :Titulo="'Jogar'"/>
-      <card :Titulo="'Fazer vídeo'"/>
-      <card :Titulo="'Desenhar'"/>
+      <card :Titulo="'Resolver Problemas'" :imageSource="imagensPainel[0]"/>
+      <card :Titulo="'Jogar'" :imageSource="imagensPainel[1]"/>
+      <card :Titulo="'Fazer vídeo'" :imageSource="imagensPainel[2]"/>
+      <card :Titulo="'Desenhar'" :imageSource="imagensPainel[3]"/>
     </div>
-    <painel :numero="2" :titulo="'Trilhas'" :trilhaTexto="'Você está no caminho da programação'"/>
+    <painel :numero="2" :titulo="'Trilhas'" :trilhaTexto="'Você está no caminho da programação'" :marcador="paineisMarcados.painel1"/>
   </div>
 </template>
 
 <script>
 import Card from './components/Card.vue'
 import Painel from './components/trilhas/Painel.vue'
+import imagem5 from './assets/images/code1.png'
+import imagem4 from './assets/images/desenhar1.png'
+import imagem2 from './assets/images/jogar1.png'
+import imagem1 from './assets/images/problemas1.png'
+import imagem3 from './assets/images/video1.png'
 export default {
   name: 'App',
   components:{Card,Painel},
+  data(){
+    return{
+      imagensPainel:[
+        imagem1,
+        imagem2,
+        imagem3,
+        imagem4,
+        imagem5,
+        ],
+        paineisMarcados:{painel1:true,painel2:false,painel3:false}
+    }
+  }
 }
 </script>
 
