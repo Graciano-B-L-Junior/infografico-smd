@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="card" @click="atualizaMarcador">
         <div class="image-card">
             <img :src="imageSource">
         </div>
@@ -8,7 +8,12 @@
 </template>
 <script>
 export default {
-    props:['Titulo','imageSource']
+    props:['Titulo','imageSource'],
+    methods:{
+        atualizaMarcador(){
+            this.$emit('atualizaTrilha')
+        }
+    }
 }
 </script>
 <style>
