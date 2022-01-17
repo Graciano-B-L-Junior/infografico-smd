@@ -6,14 +6,12 @@
       <p>{{ titulo }}</p>
     </div>
     <div class="tipo-trilha">
-      <p>{{ trilhaTexto }}</p>
+      <p v-if="marcador">{{ trilhaTexto }}</p>
+      <p v-else>Selecione um item antes</p>
     </div>
     <div class="lista-image">
       <div v-show="marcador" class="lista-itens">
-        <div class="item"><p>APS</p></div>
-        <div class="item"><p>Banco de dados</p></div>
-        <div class="item"><p>Banco de dados</p></div>
-        <div class="item"><p>Banco de dados</p></div>
+        <div class="item" v-for="cadeira in trilha" :key="cadeira"><p>{{cadeira}}</p></div>
       </div>
       <img v-show="marcador" :src="image">
     </div>
@@ -26,7 +24,8 @@ export default {
     titulo: { type: String },
     trilhaTexto: { type: String },
     marcador: { type: Boolean },
-    image:{type:String}
+    image:{type:String},
+    trilha:{type:Array}
   },
   methods: {
     topicoMarcado() {
@@ -103,15 +102,17 @@ export default {
   background-color: white;
 }
 .lista-itens .item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 15px;
   width: 100%;
-  height: 46px;
+  height: 56px;
   border-bottom: 1px solid #ccc;
 }
-.lista-itens .item p {
-  text-align: left;
-  padding-left: 40px;
+.lista-itens .item p{
   margin: 0;
-  padding-top: 15px;
+  text-align: left;
 }
 .lista-image{
   display: flex;
@@ -119,5 +120,6 @@ export default {
 }
 .lista-image img{
   margin-left: 100px;
+  max-height: 335px;
 }
 </style>

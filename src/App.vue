@@ -7,20 +7,33 @@
     </div>
     <div class="cards">
       <card
-        @atualizaTrilha="painelTrueFalse"
+        @atualizaTrilha="mostraTrilha(trilhas.trilhaProg)"
         :Titulo="'Resolver Problemas'"
         :imageSource="imagensPainel[0]"
       />
-      <card :Titulo="'Jogar'" :imageSource="imagensPainel[1]" />
-      <card :Titulo="'Fazer vídeo'" :imageSource="imagensPainel[2]" />
-      <card :Titulo="'Desenhar'" :imageSource="imagensPainel[3]" />
+      <card
+        @atualizaTrilha="mostraTrilha(trilhas.trilhaJogos)"
+        :Titulo="'Jogar'"
+        :imageSource="imagensPainel[1]"
+      />
+      <card
+        @atualizaTrilha="mostraTrilha(trilhas.trilhaAudiovisual)"
+        :Titulo="'Fazer vídeo'"
+        :imageSource="imagensPainel[2]"
+      />
+      <card
+        @atualizaTrilha="mostraTrilha(trilhas.trilhaDesign)"
+        :Titulo="'Desenhar'"
+        :imageSource="imagensPainel[3]"
+      />
     </div>
     <painel
       :numero="2"
       :titulo="'Trilhas'"
-      :trilhaTexto="'Você está no caminho da programação'"
+      :trilhaTexto="trilhaTexto[indiceTrilhaTexto]"
       :marcador="paineisMarcados.painel1"
       :image="imagensPainel[4]"
+      :trilha="trilhaAtual"
     />
   </div>
 </template>
@@ -39,13 +52,105 @@ export default {
   data() {
     return {
       imagensPainel: [imagem1, imagem2, imagem3, imagem4, imagem5],
+      indiceTrilhaTexto: 0,
+      trilhaTexto: [
+        "Você está no caminho da programação",
+        "Você está no caminho dos jogos",
+        "Você está no caminho Audiovisual",
+        "Você está no caminho do Design",
+      ],
       paineisMarcados: { painel1: false, painel2: false, painel3: false },
+      trilhaAtual: [],
+      trilhas: {
+        trilhaProg: [
+          "ANÁLISE DE DESEMPENHO",
+          "BANCO DE DADOS APLICADO À MULTIMÍDIA",
+          "COMPUTAÇÃO MÓVEL E UBÍQUA",
+          "DESENVOLVIMENTO DE APLICACOES DISTRIBUÍDAS",
+          "FILOSOFIA DA TECNOLOGIA",
+          "FRAMEWORKS DE SOFTWARE",
+          "GERÊNCIA DE PROJETOS DE SOFTWARE",
+          "INSTALAÇÕES MULTIMÍDIA",
+          "LABORATÓRIO DE PROGRAMAÇÃO",
+          "LINGUAGEM DE PROGRAMAÇÃO SCRIPT",
+          "PROGRAMAÇÃO ORIENTADA A OBJETOS",
+          "PROGRAMAÇÃO PARA DISPOSITIVOS MÓVEIS",
+          "PROGRAMAÇÃO PARA WEB I",
+          "SISTEMAS EMBARCADOS",
+          "TESTE DE SOFTWARE APLICADO",
+        ],
+        trilhaDesign: [
+          "CIBERCULTURA E EDUCAÇÃO: NOVAS PRÁTICAS",
+          "COMUNICAÇÃO EM NOVAS MÍDIAS",
+          "DESIGN DE IDENTIDADE DE MARCA",
+          "DESIGN EMOCIONAL",
+          "DESIGN INSTRUCIONAL",
+          "EDUCOMUNICAÇÃO",
+          "EXPERIMENTOS EM TIPOGRAFIA DIGITAL",
+          "GESTÃO DE NEGOCIOS EM MULTIMÍDIA",
+          "INTERAÇÃO HUMANO-COMPUTADOR II",
+          "LABORATÓRIO DE CRIATIVIDADE",
+          "TÉCNICAS DE ANIMAÇÃO ANALÓGICA",
+          "TÉCNICAS DE ANIMACAO DIGITAL I",
+          "TÉCNICAS DE ANIMAÇÃO 2D",
+          "TEORIA E CRÍTICA DO DESIGN",
+          "TÓPICOS AVANÇADOS EM DESIGN DE INTERFACES GRÁFICAS",
+        ],
+        trilhaJogos: [
+          "INTELIGÊNCIA COMPUTACIONAL APLICADA A JOGOS I",
+          "CONCEPÇÃO DE CENÁRIOS E DE PERSONAGENS",
+          "CULTURA DE JOGOS",
+          "DESENVOLVIMENTO DE JOGOS CASUAIS",
+          "DESENVOLVIMENTO DE MATERIAL DIDÁTICO EXPERIMENTAL E TREINAMENTO DE HABILIDADES",
+          "DESENVOLVIMENTO DE MOTORES GRÁFICOS",
+          "DESIGN DE JOGOS DIGITAIS",
+          "FERRAMENTAS DE MODELAGEM TRIDIMENSIONAL I",
+          "JOGOS DISTRIBUÍDOS",
+          "LABORATÓRIO DE COMPUTAÇÃO GRÁFICA",
+          "MATEMÁTICA E FÍSICA PARA JOGOS",
+          "PROGRAMAÇÃO PARA JOGOS II",
+          "PROTOTIPAÇÃO DE JOGOS TRIDIMENSIONAIS",
+          "TÉCNICAS DE ANIMAÇÃO 3D I",
+          "PROGRAMAÇÃO PARA JOGOS I",
+        ],
+        trilhaAudiovisual: [
+          "MITOLOGIAS UNIVERSAIS",
+          "DIFERENÇA E ENFRENTAMENTO PROFISSIONAL NAS DESIGUALDADES SOCIAIS",
+          "EDUCAÇÃO, COGNICAO E TECNOLOGIAS DIGITAIS",
+          "IDENTIDADE SONORA DE MARCAS",
+          "LINGUAGEM AUDIOVISUAL",
+          "MITOS E ARQUÉTIPOS",
+          "PROCESSAMENTO DIGITAL DE AUDIO",
+          "PRODUÇÃO AUDIOVISUAL",
+          "PRODUÇÃO AUDIOVISUAL PARA CRIANÇAS E ADOLESCENTES",
+          "PROJETOS PARA EDUCAÇÃO ON-LINE",
+          "REDAÇÃO PARA MÍDIAS DIGITAIS",
+          "SOCIEDADE, CULTURA E TECNOLOGIA",
+          "TECNODOCÊNCIA E ANIMAÇÃO",
+          "VIDEOGRAFISMO",
+        ],
+      },
     };
   },
   methods: {
-    painelTrueFalse() {
+    mostraTrilha(trilha) {
+      switch (trilha) {
+        case trilha == this.trilhas.trilhaProg:
+          this.indiceTrilhaTexto = 0;
+          break;
+        case trilha == this.trilhas.trilhaJogos:
+          this.indiceTrilhaTexto = 1;
+          break;
+        case trilha == this.trilhas.trilhaAudiovisual:
+          this.indiceTrilhaTexto = 2;
+          break;
+        case trilha == this.trilhas.trilhaDesign:
+          this.indiceTrilhaTexto = 3;
+          break;
+      }
+      this.trilhaAtual = trilha;
       this.paineisMarcados.painel1 = true;
-      console.log(this.paineisMarcados.painel1);
+      this.paineisMarcados.painel2 = false;
     },
   },
 };
