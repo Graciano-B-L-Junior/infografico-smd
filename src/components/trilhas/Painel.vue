@@ -11,9 +11,11 @@
     </div>
     <div class="lista-image">
       <div v-show="marcador" class="lista-itens">
-        <div class="item" v-for="cadeira in trilha" :key="cadeira"><p>{{cadeira}}</p></div>
+        <div class="item" v-for="cadeira in trilha" :key="cadeira">
+          <p>{{ cadeira }}</p>
+        </div>
       </div>
-      <img v-show="marcador" :src="image">
+      <img v-show="marcador" :src="image" />
     </div>
   </div>
 </template>
@@ -24,8 +26,8 @@ export default {
     titulo: { type: String },
     trilhaTexto: { type: String },
     marcador: { type: Boolean },
-    image:{type:String},
-    trilha:{type:Array}
+    image: { type: String },
+    trilha: { type: Array },
   },
   methods: {
     topicoMarcado() {
@@ -110,15 +112,15 @@ export default {
   height: 56px;
   border-bottom: 1px solid #ccc;
 }
-.lista-itens .item p{
+.lista-itens .item p {
   margin: 0;
   text-align: left;
 }
-.lista-image{
+.lista-image {
   display: flex;
   justify-content: space-between;
 }
-.lista-image img{
+.lista-image img {
   margin-left: 100px;
   max-height: 335px;
 }

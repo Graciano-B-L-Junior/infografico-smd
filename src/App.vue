@@ -7,21 +7,25 @@
     </div>
     <div class="cards">
       <card
+        @click="indiceTrilhaTexto = 0"
         @atualizaTrilha="mostraTrilha(trilhas.trilhaProg)"
         :Titulo="'Resolver Problemas'"
         :imageSource="imagensPainel[0]"
       />
       <card
+        @click="indiceTrilhaTexto = 1"
         @atualizaTrilha="mostraTrilha(trilhas.trilhaJogos)"
         :Titulo="'Jogar'"
         :imageSource="imagensPainel[1]"
       />
       <card
+        @click="indiceTrilhaTexto = 2"
         @atualizaTrilha="mostraTrilha(trilhas.trilhaAudiovisual)"
         :Titulo="'Fazer vídeo'"
         :imageSource="imagensPainel[2]"
       />
       <card
+        @click="indiceTrilhaTexto = 3"
         @atualizaTrilha="mostraTrilha(trilhas.trilhaDesign)"
         :Titulo="'Desenhar'"
         :imageSource="imagensPainel[3]"
@@ -29,7 +33,7 @@
     </div>
     <painel
       :numero="2"
-      :titulo="'Trilhas'"
+      :titulo="'Trilha'"
       :trilhaTexto="trilhaTexto[indiceTrilhaTexto]"
       :marcador="paineisMarcados.painel1"
       :image="imagensPainel[4]"
@@ -63,6 +67,11 @@ export default {
       trilhaAtual: [],
       trilhas: {
         trilhaProg: [
+          "ANÁLISE E PROJETO DE SISTEMAS",
+          "ESTRUTURA DE DADOS",
+          "REDES DE COMPUTADORES",
+          "BANCO DE DADOS I",
+          "ENGENHARIA DE SOFTWARE",
           "ANÁLISE DE DESEMPENHO",
           "BANCO DE DADOS APLICADO À MULTIMÍDIA",
           "COMPUTAÇÃO MÓVEL E UBÍQUA",
@@ -80,6 +89,11 @@ export default {
           "TESTE DE SOFTWARE APLICADO",
         ],
         trilhaDesign: [
+          "DESENHO II",
+          "FOTOGRAFIA DIGITAL",
+          "SEMIÓTICA APLICADA",
+          "COMUNICAÇÃO VISUAL II",
+          "DESIGN DE SOM",
           "CIBERCULTURA E EDUCAÇÃO: NOVAS PRÁTICAS",
           "COMUNICAÇÃO EM NOVAS MÍDIAS",
           "DESIGN DE IDENTIDADE DE MARCA",
@@ -97,6 +111,11 @@ export default {
           "TÓPICOS AVANÇADOS EM DESIGN DE INTERFACES GRÁFICAS",
         ],
         trilhaJogos: [
+          "ANÁLISE E PROJETO DE SISTEMAS",
+          "ESTRUTURA DE DADOS",
+          "SEMIÓTICA APLICADA",
+          "BANCO DE DADOS I",
+          "ENGENHARIA DE SOFTWARE",
           "INTELIGÊNCIA COMPUTACIONAL APLICADA A JOGOS I",
           "CONCEPÇÃO DE CENÁRIOS E DE PERSONAGENS",
           "CULTURA DE JOGOS",
@@ -114,6 +133,11 @@ export default {
           "PROGRAMAÇÃO PARA JOGOS I",
         ],
         trilhaAudiovisual: [
+          "DESENHO II",
+          "FOTOGRAFIA DIGITAL",
+          "SEMIÓTICA APLICADA",
+          "COMUNICAÇÃO VISUAL II",
+          "DESIGN DE SOM",
           "MITOLOGIAS UNIVERSAIS",
           "DIFERENÇA E ENFRENTAMENTO PROFISSIONAL NAS DESIGUALDADES SOCIAIS",
           "EDUCAÇÃO, COGNICAO E TECNOLOGIAS DIGITAIS",
